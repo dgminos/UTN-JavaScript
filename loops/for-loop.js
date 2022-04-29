@@ -22,22 +22,22 @@ const otherAges = [12, 5, 23, 45, 50];
 for (let age = 0; age < otherAges.length; age++) {
   //   console.log(ages[age]);
   if (otherAges[age] <= 18) {
-    console.log(`La persona es menor de edad (${otherAges[age]} años)`);
+    console.log(`The person is a minor (${otherAges[age]} years old)`);
   } else {
-    console.log(`La persona es mayor de edad (${otherAges[age]} años)`);
+    console.log(`The person is of legal age (${otherAges[age]} years old)`);
   }
 }
 
 /****
  * EJERCICIO 3:
- * Del siguiente array const fruit = ['Manzana', 'Naranja', 'Durazno', 'Banana', 'Anana']
- * mostrar por consola solo las frutas Manzana y Banana
+ * Del siguiente array const frutas = ['Manzana', 'Naranja', 'Durazno', 'Banana', 'Anana']
+ * mostrar por consola sólo las frutas Apple y Banana
  */
 
-const fruit = ["Manzana", "Naranja", "Durazno", "Banana", "Anana"];
+const fruit = ["Apple", "Orange", "Peach", "Banana", "Pineapple"];
 
 for (let i = 0; i <= fruit.length; i++) {
-  if (fruit[i] === "Manzana" || fruit[i] === "Banana") {
+  if (fruit[i] === "Apple" || fruit[i] === "Banana") {
     console.log("Fruit are: " + fruit[i]);
   }
 }
@@ -45,15 +45,15 @@ for (let i = 0; i <= fruit.length; i++) {
 /****
  * EJERCICIO 4:
  * Del siguiente array const numeros = [2,3,4,5,6,24,35,41,17]
- * mostrar solo los numeros pares
+ * mostrar sólo los números pares
  *
  */
 
-const numeros = [2, 3, 4, 5, 6, 24, 35, 41, 17];
+const numbers = [2, 3, 4, 5, 6, 24, 35, 41, 17];
 
-for (let i = 0; i <= numeros.length; i++) {
-  if (numeros[i] % 2 === 0) {
-    console.log("Los números pares son: " + numeros[i]);
+for (let i = 0; i <= numbers.length; i++) {
+  if (numbers[i] % 2 === 0) {
+    console.log("Pair numbers are: " + numbers[i]);
   }
 }
 
@@ -65,12 +65,12 @@ for (let i = 0; i <= numeros.length; i++) {
  *
  */
 
-const numbers = [2, 3, 4, 5, 6, 24, 35, 41, 17];
+const otherNumbers = [2, 3, 4, 5, 6, 24, 35, 41, 17];
 const pairNumbers = [];
 
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] % 2 === 0) {
-    pairNumbers.push(numbers[i]);
+for (let i = 0; i < otherNumbers.length; i++) {
+  if (otherNumbers[i] % 2 === 0) {
+    pairNumbers.push(otherNumbers[i]);
   }
 }
 console.log(`Pair numbers are:  ${pairNumbers}`);
@@ -80,6 +80,6 @@ console.log(`Pair numbers are:  ${pairNumbers}`);
 // que cumplen la condición.
 
 const otrosNumeros = [2, 3, 4, 5, 6, 24, 35, 41, 17];
-let numerosPares = numbers.filter((numero) => numero % 2 === 0);
+let numerosPares = otrosNumeros.filter((numero) => numero % 2 === 0);
 
 console.log("numerosPares", numerosPares);
