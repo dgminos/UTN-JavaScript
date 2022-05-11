@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript selectors practice</title>
+
+    <!-- Add Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <!-- Add Bootstrap Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+
+    <!-- Add my own styles -->
+    <link rel="stylesheet" href="../selectors/index.css" />
+  </head>
+
+  <body>
+    <!-- Start with project -->
+    <!-- Content -->
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-brown">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Café</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Inicio
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown categoryDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Categorías
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Arábica</a></li>
+                <li><a class="dropdown-item" href="#">Robusta</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control rounded-pill"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Search"
+            />
+            <button class="btn btn-brown rounded-circle" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Buttons-->
+    <div class="container buttons-container">
+      <div class="row buttons-row">
+        <div class="col-md-4 text-center">
+          <button
+            id="create-account"
+            class="btn btn-brown rounded-pill mt-4 show-hide-btn"
+            type="submit"
+          >
+            <i class="bi bi-person-plus-fill"></i>
+            Crear cuenta
+          </button>
+        </div>
+        <div class="col-md-4 text-center">
+          <button
+            id="login"
+            class="btn btn-brown rounded-pill mt-4 show-hide-btn"
+            type="submit"
+          >
+            <i class="bi bi-person-circle"></i>
+            Iniciar sesión
+          </button>
+        </div>
+        <div class="col-md-4 text-center">
+          <button
+            id="blocked-account"
+            class="btn btn-brown rounded-pill mt-4 show-hide-btn"
+            type="submit"
+          >
+            <i class="bi bi-person-circle"></i>
+            Bloquear cuenta
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- End Buttons-->
+    <!-- Create Account form-->
+    <div class="container create-account-container">
+      <div class="row create-account-row">
+        <div class="col-lg-6">
+          <div class="card mt-4 d-none" id="create-account-form">
+            <div class="card-header bg-info border border-dark">
+              <h2>Crear Cuenta</h2>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label"
+                    >Contraseña</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    required
+                  />
+                </div>
+                <div class="mb-3 form-check">
+                  <input
+                    id="policy-check"
+                    type="checkbox"
+                    class="form-check-input"
+                  />
+                  <label class="form-check-label" for="policyCheck"
+                    >Acepto condiciones</label
+                  >
+                </div>
+                <button
+                  id="create-btn"
+                  type="submit"
+                  class="btn btn-info"
+                  disabled
+                >
+                  Crear Cuenta
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End Create Account form-->
+    <!-- Login form-->
+    <div class="container login-account-container">
+      <div class="row login-account-row">
+        <div class="col-lg-6">
+          <div class="card mt-4 d-none" id="login-form">
+            <div class="card-header bg-success border border-dark">
+              <h2>Iniciar Sesión</h2>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    aria-describedby="emailHelp"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    required
+                  />
+                </div>
+                <div class="mb-3 form-check">
+                  <input
+                    id="remember-check"
+                    type="checkbox"
+                    class="form-check-input"
+                  />
+                  <label class="form-check-label" for="rememberCheck"
+                    >Recordar cuenta</label
+                  >
+                </div>
+
+                <div class="lower-content d-flex">
+                  <button
+                    id="login-btn"
+                    type="submit"
+                    class="btn btn-success"
+                    disabled
+                  >
+                    Iniciar sesión
+                  </button>
+                  <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End login form-->
+    <!-- Blocked account-->
+    <div class="container blocked-account-container">
+      <div class="row blocked-account-row">
+        <div class="col-lg-6">
+          <span
+            tabindex="0"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="Tu cuenta fue bloqueada por cuestiones de seguridad. Para más información contactate con el área de soporte técnico."
+          >
+            <div class="card mt-4 d-none" id="blocked-form">
+              <div class="card-header bg-danger border border-dark">
+                <h2>Cuenta bloqueada</h2>
+              </div>
+              <div class="card-body">
+                <form>
+                  <legend>Tu cuenta fue deshabilitada</legend>
+                  <fieldset disabled>
+                    <div class="mb-3">
+                      <label for="disabledEmailInput" class="form-label"
+                        >Email</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="disabledEmailInput"
+                        placeholder="Deshabilitado"
+                        aria-describedby="emailHelp"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="disabledPasswordInput" class="form-label"
+                        >Contraseña</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="disabledPasswordInput"
+                        placeholder="Deshabilitado"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input
+                        id="disabledFieldsetCheck"
+                        type="checkbox"
+                        class="form-check-input"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="disabledFieldsetCheck"
+                        disabled
+                        >Recordar cuenta</label
+                      >
+                    </div>
+
+                    <div class="lower-content d-flex">
+                      <button
+                        id="login-btn"
+                        type="submit"
+                        class="btn btn-danger"
+                      >
+                        Iniciar sesión
+                      </button>
+                      <a href="#" class="disabled">¿Olvidaste tu contraseña?</a>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- End Blocked account-->
+    <!-- End Content-->
+    <!-- Project finished-->
+
+    <!-- Add Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Add my own javascript -->
+    <script src="../selectors/js/createAccount.js" rel="javascript"></script>
+    <script src="../selectors/js/login.js" rel="javascript"></script>
+    <script src="../selectors/js/blockedAccount.js"></script>
+  </body>
+</html>
