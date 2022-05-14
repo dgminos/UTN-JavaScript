@@ -15,10 +15,8 @@
  */
 
 //1- Remove spinner/ show form logic
-
-console.log("hola");
 const spinner = document.getElementById("spinner");
-const formContact = document.getElementById("contact-form-card");
+const formContact = document.getElementById("form");
 
 setTimeout(() => {
   spinner.classList.add("d-none");
@@ -26,15 +24,46 @@ setTimeout(() => {
 }, 5000);
 
 //inputs verification logic
-const emailInput = document.getElementById("email");
-const textArea = document.getElementById("text-area");
-const sendFormButton = document.getElementsByClassName("btn");
+const userEmail = document.getElementById("email");
+const userTextArea = document.getElementById("text-area");
+const sendFormButton = document.getElementById("submit-btn");
 
-sendFormButton[0].addEventListener("click", () => {
-  if (emailInput.value === "") {
-    alert("Por favor, complete el campo de email");
-  }
-  if (textArea.value === "") {
-    alert("Por favor, complete el campo de text area");
-  }
+formContact.addEventListener("submit", (e) => {
+  e.preventDefault();
+  validateInputs();
 });
+
+const validateInputs = () => {
+  const emailValue = userEmail.value.trim();
+  const userTextAreaValue = userTextArea.value.trim();
+  if (emailValue === "") {
+    setError(userEmail, "Por favor, coloque su email");
+  } else if (!isEmail(emailValue)) {
+    setError(userEmail, "Ingrese un email válido");
+  } else {
+    setSuccess(userEmail);
+  }
+  if (userTextAreaValue === "") {
+    setError(userTextArea, "Por favor, deje un mensaje");
+  } else {
+    setSuccess(userTextArea);
+  }
+};
+
+const setError = (input, message) => {
+  const inputControl = input.parentElement; //form-control
+  const errorDisplay = inputControl.querySelector("small");
+  inputControl.className = "form-control error";
+  errorDisplay.innerText = message;
+};
+
+const setSuccess = (input) => {
+  const inputControl = input.parentElement; //form-control
+  inputControl.className = "form-control success";
+};
+
+const isEmail = (emailValue) => {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    emailValue
+  );
+};
