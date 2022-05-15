@@ -17,23 +17,19 @@
 //1- Remove spinner/ show form logic
 const spinner = document.getElementById("spinner");
 const formContact = document.getElementById("form");
+const cardMessage = document.getElementById("card-message")
 
 setTimeout(() => {
   spinner.classList.add("d-none");
   formContact.classList.remove("d-none");
 }, 5000);
 
-//inputs verification logic
+//if inputs are not blank enable/disabled submit button verification logic
 const userEmail = document.getElementById("email");
 const userTextArea = document.getElementById("text-area");
 const sendFormButton = document.getElementById("submit-btn");
 
-formContact.addEventListener("submit", (e) => {
-  e.preventDefault();
-  validateInputs();
-});
-
-const validateInputs = () => {
+const validate = () => {
   const emailValue = userEmail.value.trim();
   const userTextAreaValue = userTextArea.value.trim();
   if (emailValue === "") {
@@ -48,6 +44,9 @@ const validateInputs = () => {
   } else {
     setSuccess(userTextArea);
   }
+  const filled =
+    (emailValue!=="" && isEmail(emailValue) && userTextAreaValue!=="");
+  filled ? sendFormButton.disabled = false : sendFormButton.disabled = true;
 };
 
 const setError = (input, message) => {
@@ -67,3 +66,29 @@ const isEmail = (emailValue) => {
     emailValue
   );
 };
+
+// create Bootstrap alert logic 
+const createAlert = (message, type) => {
+  const bootstrapAlert = document.createElement("div")
+  bootstrapAlert.style.display = "block";
+  bootstrapAlert.style.width = "400px"
+  bootstrapAlert.style.position = "absolute";
+  bootstrapAlert.style.top = "62px";
+  bootstrapAlert.style.left = "568px";
+  bootstrapAlert.innerHTML = [
+    `<div class="text-center alert alert-${type} alert-dismissible" role="alert" id="alert-container">`,
+    `   <div>${message}</div>`,
+    '</div>'
+  ].join("")
+  formContact.appendChild(bootstrapAlert)
+  }
+  
+  // show Bootstrap alert, hide form contact and show card message when submit form logic
+  formContact.addEventListener("submit", (e) => {
+    e.preventDefault()
+    createAlert("Formulario enviado!", "success")
+    setTimeout(() => {
+      formContact.classList.add("d-none");
+      cardMessage.classList.remove("d-none");
+    }, 5000);
+  })

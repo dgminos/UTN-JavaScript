@@ -85,7 +85,10 @@
       </div>
     </div>
     <!-- Form -->
-    <div class="container contact-form-container d-none mt-5" id="form">
+    <div
+      class="container contact-form-container d-none mt-5"
+      id="form"
+    >
       <div class="card" id="contact-form-card">
         <div class="header">
           <h3>Contactanos</h3>
@@ -99,6 +102,7 @@
                 id="email"
                 name="email"
                 placeholder="name@example.com"
+                oninput="validate()"
               />
               <i class="bi bi-check-circle-fill"></i>
               <i class="bi bi-exclamation-circle-fill"></i>
@@ -106,15 +110,30 @@
             </div>
             <div class="form-control">
               <label for="text-area" class="form-label">Mensaje</label>
-              <textarea id="text-area" name="text-area" rows="3"></textarea>
+              <textarea id="text-area" name="text-area" rows="3" oninput="validate()"></textarea>
               <i class="bi bi-check-circle-fill"></i>
               <i class="bi bi-exclamation-circle-fill"></i>
               <small>Error message</small>
             </div>
             <div class="footer">
-              <button id="submit-btn" class="btn-submit">Enviar</button>
+              <button id="submit-btn" class="btn-submit" type="submit" disabled>
+                Enviar
+              </button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+    <div class="container d-none" id="card-message">
+      <div class="row">
+        <div class="col">
+          <div class="card text-center card-message">
+            <div class="card-body card-message-body">
+              <h3 class="card-title mt-4">Gracias por contactarnos</h3>
+              <p class="card-text mt-5">Su consulta será contestada a la brevedad.</p>
+              <a href="../index.html" class="btn btn-card-message mt-5">Volver a Home</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

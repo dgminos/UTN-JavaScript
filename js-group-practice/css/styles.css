@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #9b59b6;
+    background-color: #d6ace9;
     
 }
 
@@ -47,6 +47,7 @@ body {
 
 .card {
     margin: 0 auto; 
+	margin-top: 70px;
     background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -147,4 +148,28 @@ body {
 	padding: 10px;
 	margin-top: 40px;
 	width: 100%;
+}
+
+/* card message styles */
+
+#card-message {
+	display: flex;
+	width: 600px;
+	height: 600px;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-message {
+	width: 500px;
+	height: 300px;
+	margin-top: 0px;
+}
+
+.btn-card-message {
+	background-color: #8e44ad;
+	border: 2px solid #8e44ad;
+	border-radius: 4px;
+	color: #fff;
 }
