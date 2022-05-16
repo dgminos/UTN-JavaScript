@@ -17,14 +17,13 @@
 //1- Remove spinner/ show form logic
 const spinner = document.getElementById("spinner");
 const formContact = document.getElementById("form");
-const cardMessage = document.getElementById("card-message")
 
 setTimeout(() => {
   spinner.classList.add("d-none");
   formContact.classList.remove("d-none");
 }, 5000);
 
-//if inputs are not blank enable/disabled submit button verification logic
+//if inputs are not blank enable/disabled submit button verification and add styles logic
 const userEmail = document.getElementById("email");
 const userTextArea = document.getElementById("text-area");
 const sendFormButton = document.getElementById("submit-btn");
@@ -82,13 +81,53 @@ const createAlert = (message, type) => {
   ].join("")
   formContact.appendChild(bootstrapAlert)
   }
-  
-  // show Bootstrap alert, hide form contact and show card message when submit form logic
+
+// create card message logic
+  const createCardMessage = () => {
+    const body = document.querySelector("body")
+    const cardContainer = document.createElement("div")
+    cardContainer.className = "container card-container"
+    cardContainer.style.width = "500px"
+    cardContainer.style.marginTop = "200PX"
+    const card = document.createElement("div")
+    card.className = "card text-center"
+    const cardBody = document.createElement("div")
+    cardBody.className = "card-body"
+    const h3 = document.createElement("h3")
+    h3.className.className = "mt-4"
+    h3.innerText = "Gracias por contactarnos."
+    const p = document.createElement("p")
+    p.className = "mt-5"
+    p.innerText = "Su consulta será contestada a la brevedad."
+    const a = document.createElement("a")
+    a.setAttribute("href", "../index.html")
+    a.className = "btn btn-card-message mt-5"
+    a.innerText = "Ir a Inicio"
+
+    // appends
+    body.appendChild(cardContainer)
+    cardContainer.appendChild(card)
+    card.appendChild(cardBody)
+    cardBody.appendChild(h3)
+    cardBody.appendChild(p)
+    cardBody.appendChild(a)
+   }
+
+   //form reset function
+const formReset = () => {
+  userEmail.value =""
+  userTextArea.value =""
+}
+
+  // Hide form contact after 5 seconds, reset form, show Bootstrap alert and show card message when submitting logic
   formContact.addEventListener("submit", (e) => {
     e.preventDefault()
     createAlert("Formulario enviado!", "success")
+   formReset()
     setTimeout(() => {
       formContact.classList.add("d-none");
-      cardMessage.classList.remove("d-none");
+      createCardMessage() 
     }, 5000);
   })
+  
+  
